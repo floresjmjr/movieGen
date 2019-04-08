@@ -1,7 +1,21 @@
+include _functions
+
 doctype html
 html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
+    script(src='/javascripts/movies.js')
+    script(src='/javascripts/handlebars.js')
   body
-    block content
+    header
+      img(src='/images/redImg.png' alt='company logo')
+      form(method='get' action='/results')
+        label Search
+        input(type='text' name='movieTitle' placeholder='Find Movies')
+      nav
+        a(href='#') Login | 
+        a(href='#') Sign up
+    main
+      block content

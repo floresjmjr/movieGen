@@ -1,8 +1,87 @@
 body {
-  padding: 50px;
+  padding: 0 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+/* Header Display */
+
+header {
+  position: relative;
+  height: 150px;
+}
+
+header img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100px;
+  margin-top: -40px;
+}
+
+header nav {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+header form {
+  text-align: center;
+  margin-top: 40px;
+}
+
+header input {
+  border-radius: 10px;
+  margin-left: 10px;
+  width: 250px;
+  height: 25px;
+}
+
+header {
+  height: 80px;
+  border-bottom: 1px solid darkgrey;
+}
+
+/* Main Display */
+
+main ul {
+  list-style-type: none;
+}
+
+main li {
+  position: relative;
+  height: 250px;
+  width: 200px;
+  background-color: lightgrey;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 30px;
+}
+
+section {
+  text-align: center;
+  margin-top: 100px;
+}
+
+section .ratings {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+} 
+
+section .addMovie {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+} 
+
+section .movieName {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-bottom: -30px;
+  font-size: 10px;
+} 
+
+section ul {
+  padding: 0;
 }
