@@ -2,8 +2,11 @@
 script(id='mListing' type='text/x-handlebars').       
   {{#each movies}}
   <li>
-    <p class='movieName'>{{original_title}}</p>
+    <img src='https://image.tmdb.org/t/p/w200/{{poster_path}}'>
+    <p class='movieName'>{{title}}</p>
+    <p class='date'>{{release_date}}</p>
     <p class='ratings'> Ratings</p>
     <p class='addMovie'>Add Movie</p>
+    <div class='descripton'>{{overview}}</div>
   </li>
   {{/each}}

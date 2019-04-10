@@ -5,17 +5,19 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
     script(src='/javascripts/movies.js')
     script(src='/javascripts/handlebars.js')
   body
     header
-      img(src='/images/redImg.png' alt='company logo')
-      form(method='get' action='/results')
+      a(href='/')
+        img(src='/images/redImg.png' alt='company logo')
+      form(method='' action='')
         label Search
         input(type='text' name='movieTitle' placeholder='Find Movies')
       nav
         a(href='#') Login | 
         a(href='#') Sign up
-    main
+    main#front
       block content

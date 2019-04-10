@@ -34,6 +34,7 @@ header input {
   margin-left: 10px;
   width: 250px;
   height: 25px;
+  padding-left: 10px;
 }
 
 header {
@@ -43,45 +44,178 @@ header {
 
 /* Main Display */
 
-main ul {
-  list-style-type: none;
+#front section {
+  position: relative;
+  margin: auto;
+  margin-top: 70px;
+  width: 1000px;
+  text-align: center;
 }
 
-main li {
+#front h3 {
+  text-align: left;
+  text-decoration: underline;
+}
+
+#front ul {
   position: relative;
-  height: 250px;
-  width: 200px;
-  background-color: lightgrey;
+  list-style-type: none;
+  padding: 0;
+  width: 900px;
+  text-align: center;
   display: inline-block;
+  margin: 0;
+}
+
+#front i {
+  display: inline-block;
+  position: absolute;
+  top: 45%;
+  cursor: pointer;
+}
+
+[class='fas fa-chevron-right fa-3x'] {
+  right: 0;
+}
+
+[class='fas fa-chevron-left fa-3x'] {
+  left: 0;
+}
+
+#front li {
+  position: relative;
+  display: inline-block;
+  margin: 0;
   margin-right: 20px;
   margin-bottom: 30px;
+  width: 200px;
 }
 
-section {
+#front img {
+  display:block;
+  width: 100%;
+  height: auto;
+}
+
+#front li:last-of-type {
+  margin-right: 0px;
+}
+
+#front div {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
   text-align: center;
-  margin-top: 100px;
+  background-color: lightgrey;
+  padding: 10px;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-section .ratings {
+#front .ratings {
   position: absolute;
   left: 0;
   bottom: 0;
 } 
 
-section .addMovie {
+#front .addMovie {
   position: absolute;
   right: 0;
   bottom: 0;
 } 
 
-section .movieName {
+#front .movieName {
   position: absolute;
   left: 0;
   bottom: 0;
   margin-bottom: -30px;
   font-size: 10px;
+  text-align: left;
 } 
 
-section ul {
-  padding: 0;
+#front .date {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin-bottom: -30px;
+  font-size: 10px;
+} 
+
+/* Results from search */
+
+#results {
+  width: 60%;
+  margin: auto;
+  display: inline-block;
+  box-sizing: border-box;
 }
+
+#results h3 {
+  text-align: center;
+}
+
+#results ul {
+  border-left: 1px solid black;
+  text-align: left;
+  padding-left: 20px;
+  width: 100%
+}
+
+#results li {
+  position: relative;
+  display: block;
+  border-bottom: 1px solid black;
+}
+
+#results img {
+  width: 100px;
+}
+
+#results img, #results, p {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#results button {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+}
+
+/* Your list of movies */
+
+#yourList {
+  display: inline-block;
+  width: 35%;
+  vertical-align: top;
+  padding-left: 30px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#yourList ul {
+  border-left: 1px solid black;
+  padding-left: 15px;
+}
+
+#yourList li {
+  position: relative;
+  display: block;
+  text-align: left;
+}
+
+#yourList button {
+  position: absolute;
+  right: 0;
+  bottom: 50%;
+  display: inline-block;
+}
+
+
+

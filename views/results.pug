@@ -1,0 +1,27 @@
+include _functions
+
+section#results
+  h3 Results for '#{searchTerm}'.
+  ul  
+    each movie in searchList
+      li
+        img(src='https://image.tmdb.org/t/p/w200/' + movie.poster_path)
+        p= movie.title
+        p= format(movie.release_date)
+        button(class='addMovie' value=''+ movie.id) Add Movie   
+section#yourList
+  h3 Your List of Movies
+  ul
+    if (savedList)
+      each movie in savedList
+        li
+          p #{movie.title} #{format(movie.release_date)}
+          button(class='deleteMovie' value=''+ movie.id) Delete Movie   
+    else
+      li(class='faded') Example
+
+
+
+
+
+
