@@ -2,8 +2,10 @@ var express = require('express');
 var router = express.Router();
 var request = require('request')
 var path = require('path');
+var db = require('../config/database')
+var Movie = require('../models/Movie')
 
-var List = require(path.resolve(path.dirname(__dirname), './modules/list.js'))
+var Search = require(path.resolve(path.dirname(__dirname), './modules/search.js'))
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -50,32 +52,63 @@ router.get('/results/:query', function(req, res, next) {
   console.log('GET results query')
   var encodedQuery = encodeURIComponent(req.params.query); 
   var encodedPath = `https://api.themoviedb.org/3/search/movie?api_key=372fa67260808fa002d6f3471d8dc7b3&query=${encodedQuery}&page=1`
-  request(encodedPath, (error, response, body)=>{
-    var rawBody =JSON.parse(body);
-    console.log('request to tmdb', rawBody.total_results)
-    List.results = rawBody.results;
-    res.render('results', {
-      searchTerm: req.params.query,
-      searchList: rawBody.results,
-      savedList: List.retrieveSavedMovies(),
-    })
-  })
+  Movie.findAll().then((savedMovies)=>{
+    var renderObj = {};
+    return new Promise((resolve, reject)=>{
+      request(encodedPath, (error, response, body)=>{
+        var rawBody =JSON.parse(body);
+        console.log('request to tmdb', rawBody.total_results)
+        //Added the search results locally
+        Search.results = rawBody.results;
+        console.log('search results', Search.results.length);
+        renderObj.savedList = savedMovies
+        renderObj.searchList = Search.results
+        renderObj.searchTerm = req.params.query;
+        resolve(renderObj)
+      })
+    }).then((renderObj)=>{
+      console.log('savedMovies', renderObj.savedList.length);
+      res.render('results', renderObj)
+    }).catch((err) => console.log('whoops!', err));
+  });
 });
 
 router.post('/add/:id', (req, res, next)=>{
   console.log('POST add', req.params.id)
-  List.addMovieById(req.params.id);
-  console.log('movie List', List.retrieveSavedMovies());
-  res.render('yourList', {
-    savedList: List.retrieveSavedMovies(),
-  })
+  var savedMovie = Search.findMovieById(req.params.id);
+  console.log('savedMovie add', savedMovie);
+  Movie.create({
+    movie_id: savedMovie.id,
+    title: savedMovie.title,
+    overview: savedMovie.overview,
+    post_path: savedMovie.post_path,
+    vote_average: savedMovie.vote_average,
+    vote_count: savedMovie.vote_count,
+    release_date: savedMovie.release_date,
+    popularity: savedMovie.popularity,
+    genre_ids: savedMovie.genre_ids,
+  }).then((movie)=>{
+    return Movie.findAll()
+  }).then((savedMovies)=>{
+    res.render('yourList', {
+      savedList: savedMovies,
+    })    
+  }).catch((err)=>{ console.log(err)})
 })
 
 router.delete('/delete/:id', (req, res, next)=>{
   console.log('DELETE movie', req.params.id)
-  List.removeMovieById(req.params.id)
-  res.render('yourList', {
-    savedList: List.retrieveSavedMovies(),
+  var id = Number(req.params.id);
+  Movie.destroy({
+    where: {
+      movie_id: id,
+    }
+  }).then(()=>{
+    return Movie.findAll()    
+  }).then((savedMovies)=>{
+    res.render('yourList', {
+      savedList: savedMovies,
+    })
   })
 })
 

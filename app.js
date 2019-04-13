@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var db = require('./config/database.js')
 
 var indexRouter = require('./routes/index');
 
@@ -19,6 +20,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
+
+// test database
+db.authenticate().then(()=>{
+  console.log('Connnection has been established successfully');
+}).catch((err)=>{
+  console.error('Unable to connect to database:', err);
+})
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

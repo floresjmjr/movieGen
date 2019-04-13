@@ -6,7 +6,7 @@ ul
     each movie in savedList
       li 
         p #{movie.title} #{format(movie.release_date)}
-        button(class='deleteMovie' value=''+ movie.id) Delete Movie   
+        button(class='deleteMovie' value=''+ movie.movie_id) Delete Movie   
 
   else
     li(class='faded') Example
