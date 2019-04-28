@@ -1,0 +1,21 @@
+extends layout
+
+
+block content
+  section#recommendations
+    if(list.length)
+      h1 Recommendations
+      ul  
+        each movie in list
+          li
+            if(movie.poster_path)
+              img(src='https://image.tmdb.org/t/p/w154/' + movie.poster_path)
+
+            div.details
+              a(href=`/movie/${movie.title}&${movie.release_date}`)
+                h3 #{movie.title} #{format(movie.release_date)}
+              h6 TMDB Rating: #{movie.vote_average} | Votes: #{movie.vote_count} | Popularity: #{movie.popularity}
+              p(class='overview') #{limitSize(movie.overview)}
+    else 
+      h1 Sorry, no recommendations for your selection.  
+    

@@ -2,3 +2,11 @@
   function format(date) {
     return `(${String(date).substring(0,4)})`
   }
+
+  function limitSize(summary) {
+    if (summary.length > 400) {
+      return summary.slice(0, 400) + '...';    
+    } else {
+      return summary;
+    }
+  }

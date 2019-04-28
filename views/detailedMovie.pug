@@ -1,0 +1,62 @@
+extends layout
+
+
+block content
+  article#movie
+    h1 #{Title} (#{Year})
+    section#leftDetailed
+      img(src=Poster)
+      if(Ratings)
+        if(Ratings[0])
+          p IMDB (#{Ratings[0].Value}) | #{imdbVotes}
+        if(Ratings[1])
+          p #{Ratings[1].Source}: #{Ratings[1].Value}
+        if(Ratings[2])
+          p #{Ratings[2].Source} (#{Ratings[2].Value})
+    section#rightDetailed
+      dl
+      ul
+        li
+          dt Movie Release: 
+            dd #{Released}
+        li
+          dt DVD Release: 
+            dd #{DVD}
+        li
+          dt Rated: 
+            dd #{Rated}
+        li
+          dt Runtime: 
+            dd #{Runtime}
+        li
+          dt Awards: 
+            dd #{Awards}
+        li
+          dt BoxOffice: 
+            dd #{BoxOffice}
+        li
+          dt Country: 
+            dd #{Country}, 
+        li 
+          dt Language: 
+            dd #{Language}
+        li
+          dt Production: 
+            dd #{Production}
+        li
+          dt Genre(s): 
+            dd #{Genre}
+        li
+          dt Director(s): 
+            dd #{Director}
+        li
+          dt Writer(s): 
+            dd #{Writer}
+        li
+          dt Actors:
+            dd #{Actors}
+      summary
+        h3 Full Summary
+        p #{Plot}
+
+

@@ -13,11 +13,11 @@ html
     header
       a(href='/')
         img(src='/images/redImg.png' alt='company logo')
-      form(method='' action='')
+      form(method='GET' action='/search')
         label Search
         input(type='text' name='movieTitle' placeholder='Find Movies')
       nav
         a(href='#') Login | 
         a(href='#') Sign up
-    main#front
+    main
       block content

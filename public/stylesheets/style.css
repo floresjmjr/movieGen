@@ -1,6 +1,8 @@
 body {
   padding: 0 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  max-width: 1100px;
+  margin: auto;
 }
 
 /* Header Display */
@@ -95,13 +97,14 @@ header {
   display:block;
   width: 100%;
   height: auto;
+  border-radius: 10%;
 }
 
 #front li:last-of-type {
   margin-right: 0px;
 }
 
-#front div {
+.description {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -115,6 +118,11 @@ header {
   transition: .5s ease;
   margin: 0;
   box-sizing: border-box;
+  overflow: auto;
+}
+
+.description:hover {
+  opacity: 1;
 }
 
 #front .ratings {
@@ -148,9 +156,14 @@ header {
 
 /* Results from search */
 
+button {
+  cursor: pointer;
+}
+
 #results {
-  width: 60%;
-  margin: auto;
+  width: 58%;
+  margin: 0;
+  margin-right: 2%;
   display: inline-block;
   box-sizing: border-box;
 }
@@ -170,13 +183,16 @@ header {
   position: relative;
   display: block;
   border-bottom: 1px solid black;
+  padding-bottom: 30px;
 }
 
 #results img {
   width: 100px;
+  display: block;
+  border-radius: 10%;
 }
 
-#results img, #results, p {
+#results p {
   display: inline-block;
   margin-right: 20px;
 }
@@ -192,7 +208,7 @@ header {
 
 #yourList {
   display: inline-block;
-  width: 35%;
+  width: 40%;
   vertical-align: top;
   padding-left: 30px;
   box-sizing: border-box;
@@ -208,13 +224,130 @@ header {
   position: relative;
   display: block;
   text-align: left;
+  border-bottom: 1px solid black;
 }
 
-#yourList button {
+#yourList .deleteMovie {
   position: absolute;
   right: 0;
   bottom: 50%;
   display: inline-block;
+}
+
+#yourList p {
+  width: 250px;
+}
+
+#yourList .generate {
+  margin-top: 20px;
+  text-align: center;
+  height: 40px;
+  width: 120px;
+}
+
+/* Recommendations */
+
+#recommendations h1 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+#recommendations ul {
+  list-style-type: none;
+  width: 700px;
+}
+
+#recommendations li {
+  height: 250px;
+  overflow: auto;
+  margin-bottom: 20px;
+  background-color: rgba(148, 148, 148);
+}
+
+#recommendations img {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+#recommendations .details {
+  position: relative;
+  display: inline-block;
+  vertical-align: top;
+  width: 70%;
+  height: 100%;
+  padding-top: 15px;
+  box-sizing: border-box;
+}
+
+#recommendations h3, #recommendations h6 {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+#recommendations .overview {
+  position: absolute;
+  bottom: 0;
+}
+
+/* Detailed Page */
+
+#movie {
+  margin: auto;
+}
+
+#movie h1 {
+  text-align: center;
+  font-size: 28px;
+}
+
+#movie dt {
+  font-weight: bold;
+}
+
+#movie dt, #movie dd {
+  display: inline-block
+}
+
+#movie dd {
+  margin-left: 10px;
+}
+
+#movie ul {
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
+  padding-right: 40px;
+}
+
+#movie li {
+  display: block;
+}
+
+#leftDetailed, #rightDetailed {
+  display: inline-block;
+  width: 47.5%;
+}
+
+#leftDetailed {
+  text-align: right;
+  margin-right: 5%;
+}
+
+#rightDetailed {
+  vertical-align: top;
+}
+
+#leftDetailed img {
+  border-radius: 10%;
+}
+
+#movie summary h3 {
+  text-align: center;
+}
+
+#movie summary {
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
 }
 
 

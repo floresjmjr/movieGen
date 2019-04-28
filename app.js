@@ -5,7 +5,10 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var db = require('./config/database.js')
 
-var indexRouter = require('./routes/index');
+var homepageRouter = require('./routes/homepage');
+var searchRouter = require('./routes/search');
+var recommendationsRouter = require('./routes/recommendations');
+var detailedMovieRouter = require('./routes/detailedMovie')
 
 var app = express();
 
@@ -19,7 +22,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+app.use('/', homepageRouter);
+app.use('/', searchRouter);
+app.use('/', recommendationsRouter);
+app.use('/', detailedMovieRouter);
 
 // test database
 db.authenticate().then(()=>{

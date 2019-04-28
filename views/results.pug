@@ -1,24 +1,38 @@
-include _functions
+extends layout
 
-section#results
-  h3 Results for '#{searchTerm}'.
-  ul  
-    each movie in searchList
-      li
-        img(src='https://image.tmdb.org/t/p/w200/' + movie.poster_path)
-        p= movie.title
-        p= format(movie.release_date)
-        button(class='addMovie' value=''+ movie.id) Add Movie   
-section#yourList
-  h3 Your List of Movies
-  ul
-    if (savedList)
-      each movie in savedList
-        li
-          p #{movie.title} #{format(movie.release_date)}
-          button(class='deleteMovie' value=''+ movie.movie_id) Delete Movie   
+
+block content
+  section#results
+    if(searchList.length)
+      h3 Results for 
+        i '#{searchTerm}'.
+      ul  
+        each movie in searchList
+          if(movie.poster_path && movie.release_date)
+            li
+              img(src='https://image.tmdb.org/t/p/w200/' + movie.poster_path)
+              a(href=`/movie/${movie.title}&${movie.release_date}`)
+                p= movie.title
+                p= format(movie.release_date)
+              button(class='addMovie' value=''+ movie.id) Add Movie
+    else 
+      h3 No results for
+        i '#{searchTerm}'.   
+  section#yourList
+    h3 Your List of Movies
+    if (savedList.length)
+      ul
+        each movie in savedList
+          li
+            p #{movie.title} #{format(movie.release_date)}
+            button(class='deleteMovie' value=''+ movie.movie_id) Delete Movie 
+
+        button(class='generate')
+          a(href='/recommendations') Generate Recommendations
+
     else
-      li(class='faded') Example
+      h6 Your List is Empty  
+
 
 
 

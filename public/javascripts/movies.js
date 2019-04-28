@@ -20,15 +20,6 @@ $(function() {
       this.formatDates(movieList)
     },
 
-    showDescripton: function() {
-      console.log('showDescripton');
-      $('main').on('mouseenter', 'li', (e)=>{
-        $(e.target).closest('li').find('div').css('opacity', '1');
-      }).on('mouseleave', 'div', (e)=>{
-        $(e.target).css('opacity', '0');
-      }) 
-    },
-
     formatDates: function(movieList) {
       $(`#${movieList} .date`).each((idx, el)=>{
         $(el).text(`(${$(el).text().substring(0,4)})`)
@@ -63,7 +54,7 @@ $(function() {
       })
     },
 
-    loadFrontPage: function() {
+    frontPageMovies: function() {
       const request = new XMLHttpRequest();
       request.open('GET', 'http://localhost:3000/movies')
       request.responseType = 'json';
@@ -75,7 +66,6 @@ $(function() {
           this.displayAllLists();
           this.nextSlide();
           this.previousSlide();
-          this.showDescripton();
         } else {
           console.log(request.statusText)
         } 
@@ -83,37 +73,9 @@ $(function() {
     },
   }  
 
-  const NavPage = {
-
-    searchMovie: function() {
-      $('form').on('submit', (e)=>{
-        e.preventDefault();
-        var query = $('input').val();
-        console.log('searchMovie!')
-        const request = new XMLHttpRequest();
-        const path = `http://localhost:3000/results/${query}`;
-        request.open('GET', path);
-        request.send()
-        request.addEventListener('load', ()=>{
-          if (request.status === 200) {
-            console.log('client', query);
-            $('main').attr('id', 'back');
-            $('main').html(request.response);
-          }
-        })
-      })
-    },
-
-
-    loadNavPage: function() {
-      this.searchMovie();
-    },
-
-  }
-
-  const BackPage = {
+  const ResultsPage = {
   
-    loadBackPage: function() {
+    loadResultsPage: function() {
       this.addMovie()
       this.deleteMovie()
     },
@@ -130,7 +92,7 @@ $(function() {
     addMovieToList: function(id) {
       console.log('addMovieTolist')
       const request = new XMLHttpRequest();
-      request.open('POST', `http://localhost:3000/add/${id}`)
+      request.open('POST', `http://localhost:3000/search/${id}`)
       request.send()
       request.addEventListener('load', ()=>{
         if (request.status === 200) {
@@ -151,7 +113,7 @@ $(function() {
     deleteMovieFromList: function(id) {
       console.log('deleteMovieFromList', id)
       const request = new XMLHttpRequest();
-      request.open('DELETE', `http://localhost:3000/delete/${id}`)
+      request.open('DELETE', `http://localhost:3000/search/${id}`)
       request.send()
       request.addEventListener('load', ()=>{
         if (request.status === 200) {
@@ -163,10 +125,12 @@ $(function() {
   }
 
 
-  
-
-  NavPage.loadNavPage()
-  FrontPage.loadFrontPage()
-  BackPage.loadBackPage()
-
+  if($('#front').length) {
+    console.log('front context')
+    FrontPage.frontPageMovies()
+  }
+  if($('#results').length) {
+    console.log('results page')
+    ResultsPage.loadResultsPage()
+  }
 })
