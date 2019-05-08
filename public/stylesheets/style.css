@@ -95,17 +95,21 @@ nav a {
   position: absolute;
   top: 45%;
   cursor: pointer;
+  color: white;
 }
 
 [class='fas fa-chevron-right fa-3x'] {
   right: 0;
-  color: white;
 }
 
 [class='fas fa-chevron-left fa-3x'] {
   left: 0;
-  color: white;
 }
+
+#front i[class='fas fa-chevron-left fa-3x'] {
+  display: none;
+}
+
 
 #front li {
   position: relative;

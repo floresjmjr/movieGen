@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize');
 
-// Option 1 (localhost)
+// // Option 1 (localhost)
 // module.exports = new Sequelize("movie_collection", null, null, {
 //   host: 'localhost',
 //   dialect: 'postgres',
@@ -16,7 +16,7 @@ const Sequelize = require('sequelize');
 
 
 
-// // Option 2 (Heroku)
+// Option 2 (Heroku)
 module.exports = new Sequelize(process.env.DATABASE_URL, {
   
   define: {
