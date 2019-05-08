@@ -17,12 +17,12 @@ const Sequelize = require('sequelize');
 
 
 // Option 2 (Heroku)
-module.exports = new Sequelize(process.env.DATABASE_URL, {
+// module.exports = new Sequelize(process.env.DATABASE_URL, {
   
-  define: {
-    timestamps: false,
-  },
+//   define: {
+//     timestamps: false,
+//   },
 
-});
+// });
 
 
