@@ -1,8 +1,24 @@
+/* All Pages */
+
 body {
   padding: 0 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   max-width: 1100px;
   margin: auto;
+  background-color:rgba(49,49,49);
+}
+
+button {
+  cursor: pointer;
+}
+
+p, h3, label, span, h1 {
+  color: lightgrey;
+}
+
+a {
+  color: lightgrey;
+  cursor: pointer;
 }
 
 /* Header Display */
@@ -44,25 +60,29 @@ header {
   border-bottom: 1px solid darkgrey;
 }
 
+nav a {
+  cursor: default;
+}
+
 /* Main Display */
 
 #front section {
   position: relative;
   margin: auto;
   margin-top: 70px;
-  width: 1000px;
   text-align: center;
 }
 
 #front h3 {
   text-align: left;
   text-decoration: underline;
+  padding: 20px 0;
 }
 
 #front ul {
   position: relative;
   list-style-type: none;
-  padding: 0;
+  padding: 40px 0;
   width: 900px;
   text-align: center;
   display: inline-block;
@@ -78,10 +98,12 @@ header {
 
 [class='fas fa-chevron-right fa-3x'] {
   right: 0;
+  color: white;
 }
 
 [class='fas fa-chevron-left fa-3x'] {
   left: 0;
+  color: white;
 }
 
 #front li {
@@ -119,18 +141,21 @@ header {
   margin: 0;
   box-sizing: border-box;
   overflow: auto;
+  border-radius: 10%;
 }
 
 .description:hover {
   opacity: 1;
 }
 
+/* Remove this one */
 #front .ratings {
   position: absolute;
   left: 0;
   bottom: 0;
 } 
 
+/* Remove this one */
 #front .addMovie {
   position: absolute;
   right: 0;
@@ -140,25 +165,24 @@ header {
 #front .movieName {
   position: absolute;
   left: 0;
-  bottom: 0;
-  margin-bottom: -30px;
-  font-size: 10px;
-  text-align: left;
+  right: 0;
+  top: 0;
+  margin-top: -40px;
+  font-weight: bold;
 } 
 
 #front .date {
   position: absolute;
   right: 0;
+  left: 0;
   bottom: 0;
   margin-bottom: -30px;
-  font-size: 10px;
+  font-weight: bold;
 } 
 
 /* Results from search */
 
-button {
-  cursor: pointer;
-}
+
 
 #results {
   width: 58%;
@@ -173,7 +197,7 @@ button {
 }
 
 #results ul {
-  border-left: 1px solid black;
+  border-left: 1px solid darkgrey;
   text-align: left;
   padding-left: 20px;
   width: 100%
@@ -182,7 +206,7 @@ button {
 #results li {
   position: relative;
   display: block;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid darkgrey;
   padding-bottom: 30px;
 }
 
@@ -216,7 +240,7 @@ button {
 }
 
 #yourList ul {
-  border-left: 1px solid black;
+  border-left: 1px solid darkgrey;
   padding-left: 15px;
 }
 
@@ -224,7 +248,7 @@ button {
   position: relative;
   display: block;
   text-align: left;
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid darkgrey;
 }
 
 #yourList .deleteMovie {
@@ -239,11 +263,20 @@ button {
 }
 
 #yourList .generate {
-  margin-top: 20px;
-  text-align: center;
-  height: 40px;
-  width: 120px;
+  display: block;
+  margin-top: 30px;
 }
+
+#yourList a {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  border: 1px solid darkgrey;
+  padding: 5px;
+  background-color: lightgrey;
+  border-radius: 10px;
+}
+
 
 /* Recommendations */
 
@@ -301,27 +334,39 @@ button {
   font-size: 28px;
 }
 
-#movie dt {
-  font-weight: bold;
+#rightDetailed #summary h3 {
+  text-align: center;
 }
 
-#movie dt, #movie dd {
-  display: inline-block
+#rightDetailed #summary {
+  padding: 0 20px 10px 20px;
+  border-bottom: 1px solid darkgrey;
 }
 
-#movie dd {
-  margin-left: 10px;
+#rightDetailed ul {
+  border-top: 5px solid darkgrey;
+  border-bottom: 5px solid darkgrey;
+  margin: 0;
+  padding: 10px 0 10px 40px;
+  list-style-type: none;
 }
 
-#movie ul {
-  border-top: 5px solid black;
-  border-bottom: 5px solid black;
-  padding-right: 40px;
-}
-
-#movie li {
+#rightDetailed li {
   display: block;
+  margin: 0;
+  padding: 0;
 }
+
+#rightDetailed p, #rightDetailed span  {
+  display: inline-block;
+}
+
+#rightDetailed ul p {
+  font-weight: bold;
+  margin: 0;
+  padding-right: 10px;
+}
+
 
 #leftDetailed, #rightDetailed {
   display: inline-block;
@@ -341,14 +386,7 @@ button {
   border-radius: 10%;
 }
 
-#movie summary h3 {
-  text-align: center;
-}
 
-#movie summary {
-  padding-bottom: 10px;
-  border-bottom: 1px solid black;
-}
 
 
 

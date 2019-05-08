@@ -21,8 +21,12 @@ router.get('/movies', (req, res, next)=>{
   .then((movieLists)=>{
     var categoryCollection = {};
     categoryCollection.trending = movieLists[0];
-    categoryCollection.latest = movieLists[1];
-    categoryCollection.topRated = movieLists[2];
+    categoryCollection.topRated = movieLists[1];
+    categoryCollection.latest = movieLists[2];
+    categoryCollection.trending.push(...movieLists[3])
+    categoryCollection.topRated.push(...movieLists[4])
+    categoryCollection.latest.push(...movieLists[5])
+
     res.send(categoryCollection);
   })
 });

@@ -7,7 +7,7 @@ $(function() {
 
     displayAllLists: function() {
       console.log('displayAllLists')
-      var movieLists = ['latest', 'topRated', 'trending']
+      var movieLists = ['topRated', 'latest', 'trending']
       movieLists.forEach((movieList)=>{
         this.displayList(movieList)
       })
@@ -16,13 +16,16 @@ $(function() {
       console.log('displayList');
       var tempFunc = Handlebars.compile($('#mListing').html());
       var preview = this.movies[movieList].slice(this.position[movieList].start, this.position[movieList].end)
-      $(`#${movieList}`).html(tempFunc({movies: preview}))
-      this.formatDates(movieList)
+      $(`#${movieList}`).fadeOut(()=>{
+        $(`#${movieList}`).html(tempFunc({movies: preview})).fadeIn();
+        this.formatDates(movieList)
+      })
     },
 
     formatDates: function(movieList) {
+      console.log('formatDates', movieList);
       $(`#${movieList} .date`).each((idx, el)=>{
-        $(el).text(`(${$(el).text().substring(0,4)})`)
+        $(el).text(`(${$(el).text().substring(0,4)})`)        
       })
     },
 
@@ -31,7 +34,7 @@ $(function() {
       $(`i[class='fas fa-chevron-right fa-3x'`).on('click', (e)=>{        
         var movieList = $(e.target.previousElementSibling).attr('id');
         console.log('name', movieList);
-        if(this.position[movieList].end === 20) {          
+        if(this.position[movieList].end === 40) {          
         } else {
           this.position[movieList].start +=4
           this.position[movieList].end +=4

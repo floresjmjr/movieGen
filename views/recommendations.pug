@@ -9,7 +9,7 @@ block content
         each movie in list
           li
             if(movie.poster_path)
-              img(src='https://image.tmdb.org/t/p/w154/' + movie.poster_path)
+              img(src='https://image.tmdb.org/t/p/w154/' + movie.poster_path alt=`${movie.title}`)
 
             div.details
               a(href=`/movie/${movie.title}&${movie.release_date}`)

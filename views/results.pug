@@ -10,7 +10,7 @@ block content
         each movie in searchList
           if(movie.poster_path && movie.release_date)
             li
-              img(src='https://image.tmdb.org/t/p/w200/' + movie.poster_path)
+              img(src='https://image.tmdb.org/t/p/w200/' + movie.poster_path alt=`${movie.title}`)
               a(href=`/movie/${movie.title}&${movie.release_date}`)
                 p= movie.title
                 p= format(movie.release_date)
@@ -27,8 +27,9 @@ block content
             p #{movie.title} #{format(movie.release_date)}
             button(class='deleteMovie' value=''+ movie.movie_id) Delete Movie 
 
-        button(class='generate')
-          a(href='/recommendations') Generate Recommendations
+      div.generate
+        a( href='/recommendations') Generate Recommendations
+
 
     else
       h6 Your List is Empty  

@@ -16,8 +16,9 @@ module.exports = {
   },
 
   byMovieName: function(movieName) {
+    var apiKey = GenFunc.tmdbApiKey()
     var encodedQuery = encodeURIComponent(movieName); 
-    var encodedPath = `https://api.themoviedb.org/3/search/movie?api_key=372fa67260808fa002d6f3471d8dc7b3&query=${encodedQuery}&page=1`
+    var encodedPath = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${encodedQuery}&page=1`
     return GenFunc.tmdbRequest(encodedPath);
   },
 

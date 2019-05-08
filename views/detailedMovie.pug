@@ -4,8 +4,8 @@ extends layout
 block content
   article#movie
     h1 #{Title} (#{Year})
-    section#leftDetailed
-      img(src=Poster)
+    div#leftDetailed
+      img(src=Poster alt=`${Title}`)
       if(Ratings)
         if(Ratings[0])
           p IMDB (#{Ratings[0].Value}) | #{imdbVotes}
@@ -13,49 +13,48 @@ block content
           p #{Ratings[1].Source}: #{Ratings[1].Value}
         if(Ratings[2])
           p #{Ratings[2].Source} (#{Ratings[2].Value})
-    section#rightDetailed
-      dl
+    div#rightDetailed
       ul
-        li
-          dt Movie Release: 
-            dd #{Released}
-        li
-          dt DVD Release: 
-            dd #{DVD}
-        li
-          dt Rated: 
-            dd #{Rated}
-        li
-          dt Runtime: 
-            dd #{Runtime}
-        li
-          dt Awards: 
-            dd #{Awards}
-        li
-          dt BoxOffice: 
-            dd #{BoxOffice}
-        li
-          dt Country: 
-            dd #{Country}, 
         li 
-          dt Language: 
-            dd #{Language}
+          p Movie Release:
+          span #{Released}
+        li 
+          p DVD Release: 
+          span #{DVD}
         li
-          dt Production: 
-            dd #{Production}
+          p Rated: 
+          span #{Rated}
         li
-          dt Genre(s): 
-            dd #{Genre}
+          p Runtime: 
+          span #{Runtime}
         li
-          dt Director(s): 
-            dd #{Director}
+          p Awards: 
+          span #{Awards}
         li
-          dt Writer(s): 
-            dd #{Writer}
+          p BoxOffice: 
+          span #{BoxOffice}
         li
-          dt Actors:
-            dd #{Actors}
-      summary
+          p Country: 
+          span #{Country}, 
+        li 
+          p Language: 
+          span #{Language}
+        li
+          p Production: 
+          span #{Production}
+        li
+          p Genre(s): 
+          span #{Genre}
+        li
+          p Director(s): 
+          span #{Director}
+        li
+          p Writer(s): 
+          span #{Writer}
+        li
+          p Actors:
+          span #{Actors}
+      div#summary
         h3 Full Summary
         p #{Plot}
 

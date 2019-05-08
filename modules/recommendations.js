@@ -14,7 +14,8 @@ module.exports = {
   },
 
   requestRecommendations: function(movieId) {
-    var url = `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=372fa67260808fa002d6f3471d8dc7b3&language=en-US&page=1`
+    var apiKey = GenFunc.tmdbApiKey();
+    var url = `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}&language=en-US&page=1`
     return GenFunc.tmdbRequest(url)
   },
 
