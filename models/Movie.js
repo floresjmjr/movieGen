@@ -30,7 +30,6 @@ const Movie = db.define('movie', {
     type: Sequelize.ARRAY(Sequelize.TEXT),
   },
 
-},   
-{timestamps: false})
+})
 
 module.exports = Movie;
