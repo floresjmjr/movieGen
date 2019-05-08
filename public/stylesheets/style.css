@@ -12,7 +12,7 @@ button {
   cursor: pointer;
 }
 
-p, h3, label, span, h1 {
+p, h3, label, span, h1, h6 {
   color: lightgrey;
 }
 
