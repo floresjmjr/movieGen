@@ -4,10 +4,8 @@ script(id='mListing' type='text/x-handlebars').
   <li>
     <a href='/movie/{{title}}&{{release_date}}'>
       <p class='movieName'>{{title}}</p>
-    </a>
-    <img src='https://image.tmdb.org/t/p/w200/{{poster_path}}' alt="{{title}}">
-    <div class='description'>{{overview}}</div>
-    <a href='/movie/{{title}}&{{release_date}}'>
+      <img src='https://image.tmdb.org/t/p/w200/{{poster_path}}' alt="{{title}}">
+      <div class='description'>{{overview}}</div>
       <p class='date'>{{release_date}}</p>
     </a>
   </li>
