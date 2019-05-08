@@ -102,7 +102,7 @@ $(function() {
     addMovieToList: function(id) {
       console.log('addMovieTolist')
       const request = new XMLHttpRequest();
-      var url = FrontPage.rootUrl + `search/${id}`
+      var url = FrontPage.rootUrl + `/search/${id}`
       request.open('POST', url)
       request.send()
       request.addEventListener('load', ()=>{
@@ -124,7 +124,7 @@ $(function() {
     deleteMovieFromList: function(id) {
       console.log('deleteMovieFromList', id)
       const request = new XMLHttpRequest();
-      var url = FrontPage.rootUrl + `search/${id}`
+      var url = FrontPage.rootUrl + `/search/${id}`
       request.open('DELETE', url)
       request.send()
       request.addEventListener('load', ()=>{
