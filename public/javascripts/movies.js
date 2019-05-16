@@ -5,11 +5,9 @@ $(function() {
     movies: {},
     position: {'latest': {'start': 0, 'end': 4}, 'topRated': {'start': 0, 'end': 4}, 'trending': {'start': 0, 'end': 4}},
 
-    //Heroku
-    rootUrl: 'https://movie-recommendation-gen.herokuapp.com',
-
-    //Localhost
-    // rootUrl: 'http://localhost:3000',
+    rootUrl: function() {
+      return window.location.href.split(window.location.pathname)[0]
+    },
 
     displayAllLists: function() {
       console.log('displayAllLists')
@@ -38,7 +36,7 @@ $(function() {
     nextSlide: function() {
       console.log('nextSlide');
       $(`i[class='fas fa-chevron-right fa-3x'`).on('click', (e)=>{        
-        var movieList = $(e.target.previousElementSibling).attr('id');
+        var movieList = $(e.target.parentElement.previousElementSibling).attr('id');
         console.log('name', movieList);
         $(e.target).closest('section').find('i').eq(0).show();
         this.position[movieList].start +=4
@@ -67,7 +65,7 @@ $(function() {
 
     frontPageMovies: function() {
       const request = new XMLHttpRequest();
-      var url = this.rootUrl + '/movies';
+      var url = this.rootUrl() + '/movies';
       request.open('GET', url)
       request.responseType = 'json';
       request.send();
@@ -104,7 +102,7 @@ $(function() {
     addMovieToList: function(id) {
       console.log('addMovieTolist')
       const request = new XMLHttpRequest();
-      var url = FrontPage.rootUrl + `/search/${id}`
+      var url = FrontPage.rootUrl() + `/search/${id}`
       request.open('POST', url)
       request.send()
       request.addEventListener('load', ()=>{
@@ -126,7 +124,7 @@ $(function() {
     deleteMovieFromList: function(id) {
       console.log('deleteMovieFromList', id)
       const request = new XMLHttpRequest();
-      var url = FrontPage.rootUrl + `/search/${id}`
+      var url = FrontPage.rootUrl() + `/search/${id}`
       request.open('DELETE', url)
       request.send()
       request.addEventListener('load', ()=>{

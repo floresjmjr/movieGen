@@ -71,7 +71,7 @@ nav a {
   margin: auto;
   margin-top: 70px;
   text-align: center;
-  height: 500px;
+  /* height: 500px; */
 }
 
 #front h3 {
@@ -80,22 +80,32 @@ nav a {
   padding: 20px 0;
 }
 
+#front .movies {
+  position: relative;
+  height: 375px;
+  padding: 0 2.5%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 #front ul {
   position: relative;
   list-style-type: none;
-  padding: 40px 0;
-  width: 900px;
+  padding: 0;
+  padding-top: 40px;
+  width: 85%;
   text-align: center;
   display: inline-block;
   margin: 0;
+  box-sizing: border-box;
 }
 
 #front i {
-  display: inline-block;
+  display: block;
   position: absolute;
-  top: 45%;
   cursor: pointer;
   color: white;
+  top: 45%;
 }
 
 [class='fas fa-chevron-right fa-3x'] {
@@ -110,6 +120,12 @@ nav a {
   display: none;
 }
 
+.arrow {
+  position: relative;
+  display: inline-block;
+  width: 5%;
+  height: 375px;
+}
 
 #front li {
   position: relative;
@@ -117,7 +133,6 @@ nav a {
   margin: 0;
   margin-right: 20px;
   margin-bottom: 30px;
-  width: 200px;
 }
 
 #front img {
@@ -390,7 +405,6 @@ nav a {
 #leftDetailed img {
   border-radius: 10%;
 }
-
 
 
 
