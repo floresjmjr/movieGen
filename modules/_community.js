@@ -1,5 +1,4 @@
 const request = require('request')
-const Password = require('../passwords/api')
 
 module.exports = {
 
@@ -24,11 +23,11 @@ module.exports = {
   },
 
   tmdbApiKey: function() {
-    return Password.tmdb;
+    return process.env.TMDB_API_KEY;
   },
 
   omdbApiKey: function() {
-    return Password.omdb;
+    return process.env.OMDB_API_KEY;
   },
 
 }

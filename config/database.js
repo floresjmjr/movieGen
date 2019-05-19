@@ -1,8 +1,8 @@
 const Sequelize = require('sequelize');
 
 
-if (process.env.DATABASE_URL) {
-  module.exports = new Sequelize(process.env.DATABASE_URL, {
+if (process.env.DB_URL) {
+  module.exports = new Sequelize(process.env.DB_URL, {
     
     define: {
       timestamps: false,
