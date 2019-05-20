@@ -347,6 +347,7 @@ nav a {
 
 #movie {
   margin: auto;
+  margin-top: 100px;
 }
 
 #movie h1 {
