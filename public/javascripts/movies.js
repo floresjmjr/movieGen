@@ -51,7 +51,7 @@ $(function() {
     previousSlide: function() {
       console.log('previousSlide');
       $(`i[class='fas fa-chevron-left fa-3x'`).on('click', (e)=>{
-        var movieList = $(e.target.nextElementSibling).attr('id');
+        var movieList = $(e.target.parentElement.nextElementSibling).attr('id');
         console.log('name', movieList);
         $(e.target).closest('section').find('i').eq(1).show();
         this.position[movieList].start -=4
