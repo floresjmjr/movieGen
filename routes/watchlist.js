@@ -48,13 +48,12 @@ router.post('/watchlist/:id', (req, res)=>{
 router.delete('/watchlist/:id', (req, res)=>{
   console.log('DELETE movie', req.params.id)
   DB.removeMovieById(Number(req.params.id))
-  .then(()=>{
-    return DB.findSavedMovies()
-  })
-  .then((savedMovies)=>{
-    res.render('watchlist', {
-      savedList: savedMovies,
-    })
+  .then((returnValue)=>{
+    if(returnValue) {
+      res.sendStatus(200);
+    } else {
+      res.sendStatus(500);
+    }
   })
   .catch((err)=>{ console.log(err)})
 })

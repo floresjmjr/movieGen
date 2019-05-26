@@ -128,7 +128,7 @@ $(function() {
         if (request.status === 200) {
           $(`button[value=${id}]`).closest('li').remove();
         } else {
-          alert('movie wa not deleted')
+          alert('movie was not deleted')
         }
       })
     },
