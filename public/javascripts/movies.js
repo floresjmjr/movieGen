@@ -1,12 +1,17 @@
 $(function() {
 
-  const FrontPage = {
+  const MovieGen = {
 
     movies: {},
     position: {'latest': {'start': 0, 'end': 4}, 'topRated': {'start': 0, 'end': 4}, 'trending': {'start': 0, 'end': 4}},
 
     rootUrl: function() {
       return window.location.href.split(window.location.pathname)[0]
+    },
+
+    loadPage: function() {
+      this.addMovie()
+      this.deleteMovie()
     },
 
     displayAllLists: function() {
@@ -80,15 +85,7 @@ $(function() {
           console.log(request.statusText)
         } 
       })
-    },
-  }  
-
-  const ResultsPage = {
-  
-    loadResultsPage: function() {
-      this.addMovie()
-      this.deleteMovie()
-    },
+    },  
 
     addMovie: function() {
       console.log('addItem')
@@ -102,12 +99,12 @@ $(function() {
     addMovieToList: function(id) {
       console.log('addMovieTolist')
       const request = new XMLHttpRequest();
-      var url = FrontPage.rootUrl() + `/search/${id}`
+      var url = this.rootUrl() + `/watchlist/${id}`
       request.open('POST', url)
       request.send()
       request.addEventListener('load', ()=>{
         if (request.status === 200) {
-          $('#yourList').html(request.response);
+          alert('Your movie was added');
         }
       })
     },
@@ -124,25 +121,35 @@ $(function() {
     deleteMovieFromList: function(id) {
       console.log('deleteMovieFromList', id)
       const request = new XMLHttpRequest();
-      var url = FrontPage.rootUrl() + `/search/${id}`
+      var url = this.rootUrl() + `/watchlist/${id}`
       request.open('DELETE', url)
       request.send()
       request.addEventListener('load', ()=>{
         if (request.status === 200) {
-          $('#yourList').html(request.response);
+          $(`button[value=${id}]`).closest('li').remove();
+        } else {
+          alert('movie wa not deleted')
         }
       })
     },
 
-  }
+    selectGenre: function() {
+      console.log('selectGenre')
+      $('main').on('change', '#genreSelection', (e)=>{
+        console.log($(e.target).val())
+        window.location.href = this.rootUrl() + `/watchlist/${$(e.target).val()}`
+        
+      })
+    },
 
+
+  }
 
   if($('#front').length) {
-    console.log('front context')
-    FrontPage.frontPageMovies()
+    MovieGen.frontPageMovies()
+  } else {
+    MovieGen.loadPage();
+    MovieGen.selectGenre();
   }
-  if($('#results').length) {
-    console.log('results page')
-    ResultsPage.loadResultsPage()
-  }
+
 })

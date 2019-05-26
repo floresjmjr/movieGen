@@ -12,13 +12,11 @@ html(lang='en')
     script(src='/javascripts/handlebars.js')
   body
     header
-      a(href='/')
-        img(src='/images/redImg.png' alt='company logo')
+      a(href='/') HomePage
       form(method='GET' action='/search')
         label Search
         input(type='text' name='movieTitle' placeholder='Find Movies')
       nav
-        a Login | 
-        a Sign up
+        a(href='/watchlist/All') Your Watchlist
     main
       block content

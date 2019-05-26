@@ -1,17 +1,18 @@
-var createError = require('http-errors');
-var express = require('express');
+const createError = require('http-errors');
+const express = require('express');
 require('dotenv').config();
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var db = require('./config/database.js')
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const db = require('./config/database.js')
 
-var homepageRouter = require('./routes/homepage');
-var searchRouter = require('./routes/search');
-var recommendationsRouter = require('./routes/recommendations');
-var detailedMovieRouter = require('./routes/detailedMovie')
+const homepageRouter = require('./routes/homepage');
+const searchRouter = require('./routes/search');
+const recommendationsRouter = require('./routes/recommendations');
+const detailedMovieRouter = require('./routes/detailedMovie')
+const watchlistRouter = require('./routes/watchlist')
 
-var app = express();
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,6 +28,7 @@ app.use('/', homepageRouter);
 app.use('/', searchRouter);
 app.use('/', recommendationsRouter);
 app.use('/', detailedMovieRouter);
+app.use('/', watchlistRouter);
 
 // test database
 db.authenticate().then(()=>{

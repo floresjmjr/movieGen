@@ -10,3 +10,15 @@
       return summary;
     }
   }
+
+  function extendedTitle(title) {
+    return Boolean(title.split(':').length > 1)
+  }
+
+  function firstHalf(title) {
+    return title.split(':')[0] + ':'
+  }
+
+  function secondHalf(title) {
+    return title.split(':')[1]
+  }

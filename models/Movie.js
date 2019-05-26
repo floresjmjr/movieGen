@@ -11,7 +11,7 @@ const Movie = db.define('movie', {
   overview: {
     type: Sequelize.STRING,
   },
-  post_path: {
+  poster_path: {
     type: Sequelize.STRING,
   },
   vote_average: {

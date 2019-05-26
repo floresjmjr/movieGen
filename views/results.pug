@@ -14,25 +14,14 @@ block content
               a(href=`/movie/${movie.title}&${movie.release_date}`)
                 p= movie.title
                 p= format(movie.release_date)
-              button(class='addMovie' value=''+ movie.id) Add Movie
+              div.generate
+                a( href='/recommendations/' + movie.id) Recommend
+              button(class='addMovie' value=''+ movie.id) Add to Watchlist
+  
     else 
       h3 No results for
         i '#{searchTerm}'.   
-  section#yourList
-    h3 Your List of Movies
-    if (savedList.length)
-      ul
-        each movie in savedList
-          li
-            p #{movie.title} #{format(movie.release_date)}
-            button(class='deleteMovie' value=''+ movie.movie_id) Delete Movie 
 
-      div.generate
-        a( href='/recommendations') Generate Recommendations
-
-
-    else
-      h6 Your List is Empty  
 
 
 

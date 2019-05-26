@@ -1,0 +1,26 @@
+extends layout
+
+block content
+  section#watchlist
+    if (savedList.length)
+      h3 Your Watchlist
+      select(name='genre' id='genreSelection')
+        option(value=topGenre) #{topGenre}
+        each genre in genres
+          option(value=genre.name) #{genre.name}
+
+      ul
+        each movie in savedList
+          li
+            img(src='https://image.tmdb.org/t/p/w154' + movie.poster_path alt=`${movie.title}`)
+            a(href=`/movie/${movie.title}&${movie.release_date}`)
+              if(extendedTitle(movie.title))
+                p #{firstHalf(movie.title)}
+                p #{secondHalf(movie.title)}
+              else 
+                p #{movie.title} 
+              p #{format(movie.release_date)}
+            button(class='deleteMovie' value=''+ movie.movie_id) Remove
+        
+    else
+      h3 Your Watchlist is Empty  

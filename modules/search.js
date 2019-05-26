@@ -1,13 +1,12 @@
 const GenFunc = require('./_community')
-
+const Recommend = require('./recommendations')
 
 module.exports = {
-  results: [],
 
   movieById: function(id) {
     console.log('addMovieById working');
     var savedMovie = {};
-    this.results.forEach((movieObj)=>{
+    Recommend.list.forEach((movieObj)=>{
       if (movieObj.id === Number(id)) {
         savedMovie = movieObj;
       }

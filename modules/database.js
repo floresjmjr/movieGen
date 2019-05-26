@@ -11,7 +11,7 @@ module.exports = {
       movie_id: movieObj.id,
       title: movieObj.title,
       overview: movieObj.overview,
-      post_path: movieObj.post_path,
+      poster_path: movieObj.poster_path,
       vote_average: movieObj.vote_average,
       vote_count: movieObj.vote_count,
       release_date: movieObj.release_date,

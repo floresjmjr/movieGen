@@ -3,19 +3,21 @@ const GenFunc = require('./_community')
 
 module.exports = {
 
+  list: [],
 
-  getRecommendations: function(movies) {
+  getRecommendations: function(movieId) {
     console.log('getReccomendations');
     var promises = [];
-    movies.forEach((movie)=>{
-      promises.push(this.requestRecommendations(movie.movie_id))      
-    })
+    var pageCount;
+    for(pageCount = 1; pageCount < 3; pageCount+=1){
+      promises.push(this.requestRecommendations(movieId, pageCount))
+    }
     return Promise.all(promises)
   },
 
-  requestRecommendations: function(movieId) {
+  requestRecommendations: function(movieId, pageCount) {
     var apiKey = GenFunc.tmdbApiKey();
-    var url = `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}&language=en-US&page=1`
+    var url = `https://api.themoviedb.org/3/movie/${movieId}/recommendations?api_key=${apiKey}&language=en-US&page=${pageCount}`
     return GenFunc.tmdbRequest(url)
   },
 

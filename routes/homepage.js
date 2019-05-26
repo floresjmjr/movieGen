@@ -7,7 +7,7 @@ const Homepage = require('../modules/homepage')
 
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res) {
   console.log('get / request')
   res.render('homepage', {
     title: 'movieGen',
@@ -15,21 +15,33 @@ router.get('/', function(req, res, next) {
 });
 
 // GET request for movie data for homepage
-router.get('/movies', (req, res, next)=>{
+router.get('/movies', (req, res)=>{
   console.log('get /movies request')
-  Homepage.getMovieLists()
-  .then((movieLists)=>{
-    var categoryCollection = {};
-    categoryCollection.trending = movieLists[0];
-    categoryCollection.topRated = movieLists[1];
-    categoryCollection.latest = movieLists[2];
-    categoryCollection.trending.push(...movieLists[3])
-    categoryCollection.topRated.push(...movieLists[4])
-    categoryCollection.latest.push(...movieLists[5])
-
-    res.send(categoryCollection);
+  var collection = {};
+  Homepage.getTrendingList()
+  .then((trending)=>{
+    console.log('trending', trending);
+    collection.trending = [];
+    trending.forEach((arr)=>{
+      collection.trending.push(...arr);
+    })
+    return Homepage.getTopRatedList()
   })
-});
+  .then((topRated)=>{
+    collection.topRated = [];
+    topRated.forEach((arr)=>{
+      collection.topRated.push(...arr);
+    })
+    return Homepage.getLatestList()
+  })
+  .then((latest)=>{
+    collection.latest = [];
+    latest.forEach((arr)=>{
+      collection.latest.push(...arr);
+    })
+    res.send(collection);
+  });
+})
 
 
 module.exports = router;

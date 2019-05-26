@@ -2,20 +2,29 @@ const GenFunc = require('./_community')
 
 module.exports = {
 
-  getMovieLists: function() {
-    var apiKey = GenFunc.tmdbApiKey()
-    var categoryList = [
-      { name: 'trending 1', url: `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}` },
-      { name: 'topRated 1', url: `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en&page=1`}, 
-      { name: 'latest 1', url: `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en&sort_by=release_date.desc&include_adult=false&include_video=false&page=1&vote_count.gte=500&vote_average.gte=7`},
-      { name: 'trending 2', url: `https://api.themoviedb.org/3/trending/movie/week?api_key=${apiKey}&page=2` },
-      { name: 'topRated 2', url: `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en&page=2`}, 
-      { name: 'latest 2', url: `https://api.themoviedb.org/3/discover/movie?api_key=${apiKey}&language=en&sort_by=release_date.desc&include_adult=false&include_video=false&page=2&vote_count.gte=500&vote_average.gte=7`},
-    ]
+  apiKey: GenFunc.tmdbApiKey(),
+
+  getTrendingList: function() {
+    var url = `https://api.themoviedb.org/3/trending/movie/week?api_key=${this.apiKey}`;
+    return this.getMovies(url)
+  },
+
+  getTopRatedList: function() {
+    var url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${this.apiKey}&language=en&page=1`;
+    return this.getMovies(url);
+  },
+
+  getLatestList: function() {
+    var url = `https://api.themoviedb.org/3/discover/movie?api_key=${this.apiKey}&language=en&sort_by=release_date.desc&include_adult=false&include_video=false&page=1&vote_count.gte=500&vote_average.gte=7`;
+    return this.getMovies(url);
+  },
+
+  getMovies: function(url) {
     var promises = [];
-    categoryList.forEach((catObj)=>{
-        promises.push(GenFunc.tmdbRequest(catObj.url))
-    })
+    var i;
+    for(i = 1; i < 3; i+=1){
+      promises.push(GenFunc.tmdbRequest(url + `&page=${i}`))
+    }
     return Promise.all(promises)
   }
 
