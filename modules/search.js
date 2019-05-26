@@ -4,13 +4,14 @@ const Recommend = require('./recommendations')
 module.exports = {
 
   movieById: function(id) {
-    console.log('addMovieById working');
+    console.log('movieById', id);
     var savedMovie = {};
     Recommend.list.forEach((movieObj)=>{
       if (movieObj.id === Number(id)) {
         savedMovie = movieObj;
       }
     })
+    console.log('savedMovie', savedMovie);
     return savedMovie;
   },
 

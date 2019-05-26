@@ -90,6 +90,7 @@ $(function() {
     addMovie: function() {
       console.log('addItem')
       $('main').on('click', 'button.addMovie', (e)=>{
+        e.preventDefault();
         var id = $(e.target).attr('value');
         console.log('addMovie inside', id);
         this.addMovieToList(id);
@@ -105,6 +106,8 @@ $(function() {
       request.addEventListener('load', ()=>{
         if (request.status === 200) {
           alert('Your movie was added');
+        } else {
+          alert('The movie was NOT added');
         }
       })
     },
@@ -128,7 +131,7 @@ $(function() {
         if (request.status === 200) {
           $(`button[value=${id}]`).closest('li').remove();
         } else {
-          alert('movie was not deleted')
+          alert('movie was NOT deleted')
         }
       })
     },

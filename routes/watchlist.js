@@ -33,13 +33,11 @@ router.post('/watchlist/:id', (req, res)=>{
   console.log('POST add', req.params.id)
   DB.insertMovie(Search.movieById(req.params.id))
   .then((movie)=>{ 
-    return DB.findSavedMovies()
-  })
-  .then((savedMovies)=>{
-    console.log('savedMovies', savedMovies);
-    res.render('watchlist', {
-      savedList: savedMovies,
-    })    
+    if(movie.title) {
+      res.sendStatus(200);
+    } else {
+      res.sendStatus(500);
+    } 
   })
   .catch((err)=>{ console.log(err)})
 })

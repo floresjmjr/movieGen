@@ -16,7 +16,7 @@ block content
                 h3 #{movie.title} #{format(movie.release_date)}
               h6 TMDB Rating: #{movie.vote_average} | Votes: #{movie.vote_count} | Popularity: #{movie.popularity}
               p(class='overview') #{limitSize(movie.overview)}
-            button(class='addMovie' value=''+ movie.id) Add
+            button(class='addMovie' value=movie.id) Add
     else 
       h1 Sorry, no recommendations for your selection.  
 
