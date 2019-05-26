@@ -59,6 +59,7 @@ module.exports = {
   },
 
   removeAndReturnGenre: function(genreName) {
+    genreName = decodeURIComponent(genreName);
     var genre;
     var index;
     this.savedGenres.forEach((genreObj, idx)=>{

@@ -73,6 +73,11 @@ nav a {
   cursor: default;
 }
 
+main footer {
+  margin-top: 100px;
+  text-align: center;
+}
+
 /* Main Display */
 
 #front section {
@@ -178,6 +183,9 @@ nav a {
   height: auto;
 }
 
+#front p {
+  margin: 20px 0;
+}
 
 /* Results from search */
 

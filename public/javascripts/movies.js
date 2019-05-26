@@ -140,7 +140,8 @@ $(function() {
       console.log('selectGenre')
       $('main').on('change', '#genreSelection', (e)=>{
         console.log($(e.target).val())
-        window.location.href = this.rootUrl() + `/watchlist/${$(e.target).val()}`
+        var genre = encodeURIComponent($(e.target).val());
+        window.location.href = this.rootUrl() + `/watchlist/${genre}`
         
       })
     },
