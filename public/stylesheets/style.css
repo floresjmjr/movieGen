@@ -80,6 +80,16 @@ main footer {
 
 /* Main Display */
 
+body::-webkit-scrollbar {
+  width: 15px;
+  height: 8px;
+  background-color: #aaa;
+}
+
+body::-webkit-scrollbar-thumb {
+  background: black;
+}
+
 #front section {
   position: relative;
   display: block;
