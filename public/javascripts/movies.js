@@ -40,7 +40,7 @@ $(function() {
 
     nextSlide: function() {
       console.log('nextSlide');
-      $(`i[class='fas fa-chevron-right fa-3x'`).on('click', (e)=>{        
+      $(`i[class='fas fa-chevron-right fa-3x']`).on('click', (e)=>{        
         var movieList = $(e.target.parentElement.previousElementSibling).attr('id');
         console.log('name', movieList);
         $(e.target).closest('section').find('i').eq(0).show();
@@ -58,7 +58,7 @@ $(function() {
 
     previousSlide: function() {
       console.log('previousSlide');
-      $(`i[class='fas fa-chevron-left fa-3x'`).on('click', (e)=>{
+      $(`i[class='fas fa-chevron-left fa-3x']`).on('click', (e)=>{
         var movieList = $(e.target.parentElement.nextElementSibling).attr('id');
         console.log('name', movieList);
         $(e.target).closest('section').find('i').eq(1).show();
