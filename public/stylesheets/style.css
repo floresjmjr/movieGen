@@ -113,8 +113,8 @@ body::-webkit-scrollbar-thumb {
 
 #front ul {
   list-style-type: none;
-  padding: 0;
-  width: 85%;
+  padding: 0 2.5%;
+  width: 100%;
   text-align: center;
   display: inline-block;
   margin: 0;
@@ -142,10 +142,9 @@ body::-webkit-scrollbar-thumb {
 }
 
 .arrow {
-  position: relative;
+  position: absolute;
   display: inline-block;
-  width: 5%;
-  height: 390px;
+  height: 100%;
 }
 
 #front li {
@@ -156,15 +155,15 @@ body::-webkit-scrollbar-thumb {
   width: 20%;
 }
 
+#front li:last-of-type {
+  margin-right: 0px;
+}
+
 #front img {
   display:block;
   width: 100%;
   height: auto;
   border-radius: 10%;
-}
-
-#front li:last-of-type {
-  margin-right: 0px;
 }
 
 #front .description {
@@ -443,7 +442,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-@media all and (max-width: 950px) {
+@media all and (max-width: 850px) {
 
 
 }

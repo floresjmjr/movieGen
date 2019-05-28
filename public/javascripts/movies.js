@@ -46,6 +46,9 @@ $(function() {
         $(e.target).closest('section').find('i').eq(0).show();
         this.position[movieList].start +=4
         this.position[movieList].end +=4
+        var ulHeight = $(`#${movieList}`).css('height')
+        console.log('ulHeight', ulHeight);
+        $(`#${movieList}`).css('height', ulHeight)
         this.displayList(movieList)
         if(this.position[movieList].end === 40) {          
           $(e.target).hide()
@@ -68,6 +71,15 @@ $(function() {
       })
     },
 
+    resizeWindow: function() {
+      $(window).resize(()=>{
+        console.log('resizeWindow');
+        $('ul').each((idx, el)=>{
+          $(el).css('height', '')
+        })
+      })
+    },
+
     frontPageMovies: function() {
       const request = new XMLHttpRequest();
       var url = this.rootUrl() + '/movies';
@@ -81,6 +93,7 @@ $(function() {
           this.displayAllLists();
           this.nextSlide();
           this.previousSlide();
+          this.resizeWindow();
         } else {
           console.log(request.statusText)
         } 
