@@ -151,8 +151,9 @@ body::-webkit-scrollbar-thumb {
 #front li {
   display: inline-block;
   margin: 0;
-  margin-right: 20px;
-  max-width: 200px;
+  padding: 0;
+  margin-right: 4%;
+  width: 20%;
 }
 
 #front img {
@@ -166,7 +167,7 @@ body::-webkit-scrollbar-thumb {
   margin-right: 0px;
 }
 
-.description {
+#front .description {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -184,7 +185,13 @@ body::-webkit-scrollbar-thumb {
   border-radius: 10%;
 }
 
-.description:hover {
+#front .description::-webkit-scrollbar {
+  width: 0 !important;
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+}
+
+#front .description:hover {
   opacity: 1;
 }
 
@@ -436,5 +443,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 
+@media all and (max-width: 950px) {
 
+
+}
 
