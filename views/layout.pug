@@ -4,6 +4,7 @@ doctype html
 html(lang='en')
   head
     title movieGen
+    meta(name="viewport" content="initial-scale=1")
     link(rel='stylesheet', href='/stylesheets/style.css')
     link(rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous")
     script(src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js")
@@ -12,11 +13,12 @@ html(lang='en')
     script(src='/javascripts/handlebars.js')
   body
     header
-      a(href='/') HomePage
+      nav
+        a(href='/') HomePage
+        a(href='/watchlist/All') Your Watchlist
       form(method='GET' action='/search')
         label Search
         input(type='text' name='movieTitle' placeholder='Find Movies')
-      nav
-        a(href='/watchlist/All') Your Watchlist
+
     main
       block content

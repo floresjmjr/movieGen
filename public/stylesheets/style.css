@@ -27,25 +27,20 @@ p {
   margin: 0;
 }
 
-/* Header Display */
-
-header {
-  position: relative;
-  height: 150px;
+main {
+  padding-top: 80px;
 }
 
-header img {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100px;
-  margin-top: -40px;
+header {
+  position: fixed;
+  border-bottom: 1px solid darkgrey;
+  width: 100vw;
+  z-index: 1;
+  background-color: rgba(49,49,49);
 }
 
 header nav {
-  position: absolute;
-  right: 0;
-  top: 0;
+  display: block;
 }
 
 header form {
@@ -60,17 +55,11 @@ header input {
   padding-left: 10px;
 }
 
-header {
-  height: 80px;
-  border-bottom: 1px solid darkgrey;
-}
-
-header a {
-  font-size: 20px;
-}
-
 nav a {
-  cursor: default;
+  display: inline-block;
+  width: 50%;
+  font-size: 20px;
+  text-align: center;
 }
 
 main footer {
@@ -151,8 +140,8 @@ body::-webkit-scrollbar-thumb {
   display: inline-block;
   margin: 0;
   padding: 0;
-  margin-right: 4%;
-  width: 20%;
+  margin-right: 2%;
+  width: 21%;
 }
 
 #front li:last-of-type {
@@ -444,9 +433,54 @@ body::-webkit-scrollbar-thumb {
 
 @media all and (max-width: 750px) {
 
-  #front ul {
-
+  body {
+    font-size: 10px;
+    padding: 0px;
   }
+
+  header nav {
+    padding-top: 20px;
+  }
+
+  header a {
+    font-size: 16px;
+  }
+
+  header form {
+    margin: 20px;
+  }
+
+  #front h3 {
+    text-align: center;
+    margin: 30px 0;
+    font-size: 16px;
+  }
+
+  #front p {
+    margin: 12px 0;
+  }
+
+  form label {
+    display: none;
+  }
+
+  main footer {
+    margin-top: 50px;
+  }
+
+  footer img {
+    width: 50%;
+  }
+
+  #front ul {
+    padding: 0;
+  }
+
+  #front li {
+    margin: 0;
+    width: 40%
+  }
+
 
 }
 
