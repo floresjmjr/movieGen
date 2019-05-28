@@ -470,6 +470,10 @@ body::-webkit-scrollbar-thumb {
     font-size: 14px;
   }
 
+  #front .description:hover {
+    opacity: 0;
+  }
+
   form label {
     display: none;
   }
