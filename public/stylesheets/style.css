@@ -110,6 +110,8 @@ body::-webkit-scrollbar-thumb {
   cursor: pointer;
   color: white;
   top: 45%;
+  width: 30px;
+  height: 30px;
 }
 
 [class='fas fa-chevron-right fa-3x'] {
