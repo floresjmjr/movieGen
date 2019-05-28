@@ -481,6 +481,58 @@ body::-webkit-scrollbar-thumb {
     width: 40%
   }
 
+  #results {
+    width: 100%;
+  }
+
+  #results ul {
+    padding: 0;
+  }
+
+  #results h3 {
+    margin: 40px 0;
+    font-size: 16px;
+  }
+
+  #recommendations li {
+    height: 190px;
+  }
+
+  #recommendations img {
+    margin: 0;
+    width: 30%
+  }
+
+  #recommendations .details {
+    width: 70%;
+    padding: 10px;
+  }
+
+  #recommendations ul {
+    padding: 0;
+  }
+
+  #recommendations .addMovie {
+    background-color: lightgrey;
+  }
+
+  #recommendations h1 {
+    margin-top: 50px;
+  }
+
+  #watchlist .deleteMovie {
+    background-color: lightgrey;
+  }
+
+  #watchlist h3 {
+    margin-top: 50px;
+  }
+
+  #watchlist #genreSelection {
+    display: block;
+    background-color: lightgrey;
+    margin: auto;
+  }
 
 }
 
