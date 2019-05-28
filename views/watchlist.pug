@@ -12,8 +12,8 @@ block content
       ul
         each movie in savedList
           li
-            img(src='https://image.tmdb.org/t/p/w154' + movie.poster_path alt=`${movie.title}`)
             a(href=`/movie/${encodeTitle(movie.title)}&${movie.release_date}`)
+              img(src='https://image.tmdb.org/t/p/w154' + movie.poster_path alt=`${movie.title}`)
               if(extendedTitle(movie.title))
                 p #{firstHalf(movie.title)}
                 p #{secondHalf(movie.title)}

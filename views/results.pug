@@ -10,8 +10,8 @@ block content
         each movie in searchList
           if(movie.poster_path && movie.release_date)
             li
-              img(src='https://image.tmdb.org/t/p/w200/' + movie.poster_path alt=`${movie.title}`)
               a(href=`/movie/${encodeTitle(movie.title)}&${movie.release_date}`)
+                img(src='https://image.tmdb.org/t/p/w200/' + movie.poster_path alt=`${movie.title}`)
                 p= movie.title
                 p= format(movie.release_date)
               div.generate

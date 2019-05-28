@@ -27,16 +27,9 @@ p {
   margin: 0;
 }
 
-main {
-  padding-top: 80px;
-}
-
 header {
-  position: fixed;
+  position: relative;
   border-bottom: 1px solid darkgrey;
-  width: 100vw;
-  z-index: 1;
-  background-color: rgba(49,49,49);
 }
 
 header nav {
@@ -45,6 +38,7 @@ header nav {
 
 header form {
   text-align: center;
+  margin: 30px 0;
 }
 
 header input {
@@ -428,14 +422,23 @@ body::-webkit-scrollbar-thumb {
 
 #leftDetailed img {
   border-radius: 10%;
+  width: 100%;
+  max-width: 300px;
 }
 
 
-@media all and (max-width: 750px) {
+@media all and (max-width: 775px) {
 
   body {
     font-size: 10px;
     padding: 0px;
+  }
+
+  header {
+    position: fixed;
+    width: 100vw;
+    z-index: 1;
+    background-color: rgba(49,49,49);
   }
 
   header nav {
@@ -448,6 +451,10 @@ body::-webkit-scrollbar-thumb {
 
   header form {
     margin: 20px;
+  }
+
+  main {
+    padding-top: 80px;
   }
 
   #front h3 {
@@ -494,17 +501,23 @@ body::-webkit-scrollbar-thumb {
     font-size: 16px;
   }
 
+  #results p {
+    font-size: 14px;
+    display: block;
+    margin: 10px 0;
+    text-align: center;
+  }
+
   #recommendations li {
     height: 190px;
   }
 
   #recommendations img {
     margin: 0;
-    width: 30%
+    height: 100%;
   }
 
   #recommendations .details {
-    width: 70%;
     padding: 10px;
   }
 
@@ -512,12 +525,31 @@ body::-webkit-scrollbar-thumb {
     padding: 0;
   }
 
+  #recommendations li {
+    overflow: hidden;
+  }
+
   #recommendations .addMovie {
     background-color: lightgrey;
+    top: 0;
+    right: 0;
   }
 
   #recommendations h1 {
     margin-top: 50px;
+  }
+
+  #recommendations h3 {
+    font-size: 16px;
+  }
+
+  #recommendations h6 {
+    font-size: 9px;
+  }
+
+  #recommendations .overview {
+    font-size: 11px;
+    bottom: 10px;
   }
 
   #watchlist .deleteMovie {
@@ -532,6 +564,47 @@ body::-webkit-scrollbar-thumb {
     display: block;
     background-color: lightgrey;
     margin: auto;
+  }
+
+  #leftDetailed, #rightDetailed {
+    width: 100%;
+    display: block;
+  }
+
+  #leftDetailed {
+    margin: 0;
+    text-align: center;
+  }
+
+  #leftDetailed img {
+    width: 60%;
+    max-width: 250px;
+    margin-bottom: 10px
+  }
+
+  #leftDetailed p {
+    font-size: 14px;    
+  }
+    
+  #movie h1 {
+    font-size: 20px;
+    margin-top: 50px;
+  }
+
+  #rightDetailed ul {
+    margin-right: 30px;
+  }
+
+  #rightDetailed p {
+    font-size: 16px;
+  }
+
+  #movie {
+    margin: 0;
+  }
+
+  #rightDetailed #summary h3 {
+    font-size: 18px;
   }
 
 }
