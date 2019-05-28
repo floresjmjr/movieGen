@@ -467,6 +467,7 @@ body::-webkit-scrollbar-thumb {
 
   #front p {
     margin: 12px 0;
+    font-size: 14px;
   }
 
   form label {
