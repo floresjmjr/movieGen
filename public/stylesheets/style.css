@@ -101,11 +101,12 @@ body::-webkit-scrollbar-thumb {
   text-align: left;
   text-decoration: underline;
   padding: 20px 0;
+  margin: 0;
 }
 
 #front .movies {
   position: relative;
-  padding: 0 2.5%;
+  padding: 0;
   width: 100%;
   box-sizing: border-box;
 }
@@ -444,7 +445,7 @@ body::-webkit-scrollbar-thumb {
 @media all and (max-width: 750px) {
 
   #front ul {
-    
+
   }
 
 }
