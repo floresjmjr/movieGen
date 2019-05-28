@@ -1,7 +1,7 @@
 /* All Pages */
 
 body {
-  padding: 0 50px;
+  padding: 30px 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   max-width: 1300px;
   margin: auto;
@@ -94,7 +94,6 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   display: block;
   margin: auto;
-  margin-top: 70px;
   text-align: center;
 }
 
@@ -442,8 +441,11 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-@media all and (max-width: 850px) {
+@media all and (max-width: 750px) {
 
+  #front ul {
+    
+  }
 
 }
 
