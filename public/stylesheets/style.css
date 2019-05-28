@@ -581,6 +581,7 @@ body::-webkit-scrollbar-thumb {
   #leftDetailed {
     margin: 0;
     text-align: center;
+    margin-bottom: 30px;
   }
 
   #leftDetailed img {
@@ -598,10 +599,6 @@ body::-webkit-scrollbar-thumb {
     margin-top: 50px;
   }
 
-  #rightDetailed ul {
-    margin-right: 30px;
-  }
-
   #rightDetailed p {
     font-size: 16px;
   }
@@ -612,6 +609,10 @@ body::-webkit-scrollbar-thumb {
 
   #rightDetailed #summary h3 {
     font-size: 18px;
+  }
+
+  #rightDetailed span {
+    font-size: 12px;
   }
 
 }
