@@ -297,6 +297,7 @@ body::-webkit-scrollbar-thumb {
   right: 0;
   margin: auto;
   width: 70px;
+  text-align: center;
   background-color: lightgrey;
 }
 
