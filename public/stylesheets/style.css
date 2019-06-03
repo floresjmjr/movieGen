@@ -286,6 +286,7 @@ body::-webkit-scrollbar-thumb {
   height: 350px;
   vertical-align: middle;
   padding-top: 20px;
+  width: 200px;
   box-sizing: border-box;
 }
 
@@ -296,15 +297,13 @@ body::-webkit-scrollbar-thumb {
   right: 0;
   margin: auto;
   width: 70px;
-
-}
-
-#watchlist p {
-  width: 250px;
+  background-color: lightgrey;
 }
 
 #watchlist #genreSelection {
   font-size: 15px;
+  background-color: lightgrey;
+  border-radius: 5px;
 }
 
 /* Recommendations */
@@ -326,8 +325,10 @@ body::-webkit-scrollbar-thumb {
   position: relative;
   height: 250px;
   overflow: auto;
+  margin:auto;
   margin-bottom: 20px;
   background-color: rgba(148, 148, 148);
+  max-width: 900px;
 }
 
 #recommendations img {
@@ -353,13 +354,15 @@ body::-webkit-scrollbar-thumb {
 
 #recommendations .overview {
   position: absolute;
-  bottom: 0;
+  bottom: 10px;
+  max-width: 600px;
 }
 
 #recommendations .addMovie {
   position: absolute;
   top: 10px;
   right: 10px;
+  background-color: lightgrey;
 } 
 
 /* Detailed Page */
@@ -429,7 +432,7 @@ body::-webkit-scrollbar-thumb {
 }
 
 
-@media all and (max-width: 775px) {
+@media all and (max-width: 750px) {
 
   body {
     font-size: 10px;
@@ -547,20 +550,16 @@ body::-webkit-scrollbar-thumb {
   }
 
   #recommendations h3 {
-    font-size: 16px;
+    font-size: 18px;
   }
 
   #recommendations h6 {
-    font-size: 9px;
+    font-size: 10px;
   }
 
   #recommendations .overview {
-    font-size: 11px;
+    font-size: 12px;
     bottom: 10px;
-  }
-
-  #watchlist .deleteMovie {
-    background-color: lightgrey;
   }
 
   #watchlist h3 {
@@ -617,3 +616,40 @@ body::-webkit-scrollbar-thumb {
 
 }
 
+@media all and (max-width: 450px) {
+  #recommendations .details {
+    width: 240px;
+  }
+
+  #recommendations .overview {
+    max-height: 50%;
+  }
+
+  #watchlist {
+    padding: 0;
+  }
+
+  #watchlist li {
+    width: auto;
+  }
+
+  #front p {
+    font-size: 13px;
+  }
+
+}
+
+@media all and (max-width: 370px) {
+  #recommendations .details {
+    width: 190px;
+  }
+
+  #recommendations .overview {
+    font-size: 11px;
+  }
+
+  #recommendations h3 {
+    font-size: 16px;
+  }
+
+}
