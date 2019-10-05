@@ -20,6 +20,7 @@ router.get('/movies', (req, res)=>{
   var collection = {};
   Homepage.getTrendingList()
   .then((trending)=>{
+    console.log('key', process.env.TMDB_API_KEY)
     console.log('trending', trending);
     collection.trending = [];
     trending.forEach((arr)=>{
