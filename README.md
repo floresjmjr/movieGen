@@ -25,12 +25,20 @@ This application allows a user to see what movies are trending, popular and high
 
 ## Phases
 ### First Phase
-* Create a page shows off several categories of the movie database api (trending, popular, high-rated) (DONE)
-* Allow for browsing of movies listed and while offering a summary when hovered and clicking for detailed info. (DONE)
-* Using the api to search for matching movie based on typed in name and allow for recommendations of the searched movie (DONE)
-* Create a watchlist to add movies that were recommended that can be filted based on the genre. (DONE)
+* Use the movie database api to show off several movie categories (trending, popular, high-rated) (DONE)
+* Allow for browsing listed movies while offering a summary when hovered. (DONE)
+* Provide detailed information for movies chosen. (DONE)
+* Use the api to search for matching movies based on text input (DONE)
+* Recommend movies for each movie listed in the search results (DONE)
+* Create a watchlist that can add and remove movies that were recommended. (DONE)
+* Filter movies in watchlist based on genre (DONE)
 
 ### Second Phase
-* Allow the user to create tags for the movies that are in the watchlist so they can filter based on said tags
-* Allow the user to be able to rate the movies.
+* Redeploy the website using AWS Beanstalk. (IN PROGRESS)
+* Switch from using Heroku's postgresql database to use AWS postgresql database. (IN PROGRESS)
+* Allow the user to create tags for the movies that are in the watchlist so they can filter based on tags. (PENDING)
+* Allow the user to be able to rate the movies. (PENDING)
+
+### Third Phase
+* Add authentication using Node or AWS Cognito and AWS Amplify. (PENDING)
 
