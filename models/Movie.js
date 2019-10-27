@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../config/database')
 
-const Movie = db.define('movie', {
+const Movie = db.define(process.env.RDS_DB_NAME, {
   movie_id: {
     type: Sequelize.INTEGER
   },
