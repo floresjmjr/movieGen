@@ -37,7 +37,7 @@ This application allows a user to see what movies are trending, popular and high
 ### Second Phase
 *In Progress*
 * Redeploy the website with AWS Beanstalk from Heroku
-* Switch from using Heroku's postgresql database to use AWS postgresql database. (IN PROGRESS)
+* Switch from using Heroku's postgresql database to use AWS postgresql database.
 
 *Planned To Do*
 * Allow the user to create tags for the movies that are in the watchlist so they can filter based on tags.
