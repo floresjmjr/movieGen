@@ -1,5 +1,8 @@
 # Movie Recommender App
 
+## Why
+The idea came from my struggle with finding good movie recommendations. I didn't feel like the websites where the content was, generated good recommendations. I thought initially of creating my own algorithm that would generate recommendations based on a list of personally rated movies but after some research I discovered a cap in the amount of api calls one could make, making the algorithm not feesible.  The next best thing was to rely on the recommendations offered by the api.
+
 ## Background
 This application allows a user to see what movies are trending, popular and highly rated. The user can search for movies and seek recommendations that can then be added to a watchlist.  The watchlist can be filtered based on the genre.
 
