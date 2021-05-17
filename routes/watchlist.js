@@ -5,7 +5,7 @@ const router = express.Router()
 // Modules
 const DB = require('../modules/database.js')
 const Search = require('../modules/search.js')
-const Watchlist = require('../modules/watchlist')
+const Watchlist = require('../modules/watchlist.js')
 
 // GET request, lists the saved movies
 router.get('/watchlist/:genre', (req, res)=>{

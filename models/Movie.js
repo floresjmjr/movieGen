@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const db = require('../config/database')
 
-const Movie = db.define(process.env.RDS_DB_NAME, {
+const Movie = db.define('movie', {
   movie_id: {
     type: Sequelize.INTEGER
   },
@@ -29,7 +29,7 @@ const Movie = db.define(process.env.RDS_DB_NAME, {
   genre_ids: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
   },
-
+  tableName: 'movie',
 })
 
 module.exports = Movie;
