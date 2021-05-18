@@ -9,13 +9,13 @@ const Movie = db.define('movie', {
     type: Sequelize.STRING,
   },
   overview: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
   },
   poster_path: {
     type: Sequelize.STRING,
   },
   vote_average: {
-    type: Sequelize.STRING,
+    type: Sequelize.DECIMAL,
   },
   vote_count: {
     type: Sequelize.INTEGER,
@@ -24,12 +24,11 @@ const Movie = db.define('movie', {
     type: Sequelize.STRING,
   },
   popularity: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.DECIMAL,
   },
   genre_ids: {
     type: Sequelize.ARRAY(Sequelize.TEXT),
-  },
-  tableName: 'movie',
+  }
 })
 
 module.exports = Movie;

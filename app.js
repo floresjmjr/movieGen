@@ -1,10 +1,10 @@
 const createError = require('http-errors');
 const express = require('express');
-require('dotenv').config();
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const db = require('./config/database.js')
+require('dotenv').config();
 
 const homepageRouter = require('./routes/homepage');
 const searchRouter = require('./routes/search');

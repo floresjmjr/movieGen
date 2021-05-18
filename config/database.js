@@ -1,10 +1,12 @@
 const Sequelize = require('sequelize');
 
-module.exports = new Sequelize(process.env.RDS_DB_NAME, process.env.RDS_USERNAME, process.env.RDS_PASSWORD, 
+
+
+const sequelize = new Sequelize(process.env.RDS_DB_NAME, process.env.RDS_USERNAME, process.env.RDS_PASSWORD, 
   {
     host: process.env.RDS_HOSTNAME,
     dialect: 'postgres',
-
+    port: 5432,
     pool: {
       max: 5,
       min: 0,
@@ -14,6 +16,11 @@ module.exports = new Sequelize(process.env.RDS_DB_NAME, process.env.RDS_USERNAME
 
     define: {
       timestamps: false,
+      tableName: 'movie',
     },  
   }
 )
+
+sequelize.sync({force: true})
+
+module.exports = sequelize 
