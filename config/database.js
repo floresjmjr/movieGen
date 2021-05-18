@@ -7,10 +7,6 @@ const sequelize = new Sequelize(process.env.RDS_DB_NAME, process.env.RDS_USERNAM
     host: process.env.RDS_HOSTNAME,
     dialect: 'postgres',
     port: 5432,
-    ssl: true,
-    dialectOptions: {
-      "ssl": {"require":true}
-    },
     pool: {
       max: 5,
       min: 0,
