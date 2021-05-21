@@ -21,6 +21,5 @@ const sequelize = new Sequelize(process.env.RDS_DB_NAME, process.env.RDS_USERNAM
   }
 )
 
-sequelize.sync({force: true})
 
 module.exports = sequelize 

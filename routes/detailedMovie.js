@@ -7,8 +7,8 @@ const Details = require('../modules/detailedMovie');
 
 
 router.get('/movie/:movieData', (req, res, next)=>{
-  console.log('GET request movie', req.params.movieData)
   const movieData = req.params.movieData.split(' ').join('%20')
+  console.log('GET request movie', movieData)
   Details.getMovieByTitle(movieData)
   .then((movie)=>{
     console.log('before render detailed', movie)

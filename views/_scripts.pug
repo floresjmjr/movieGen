@@ -2,7 +2,7 @@
 script(id='mListing' type='text/x-handlebars').       
   {{#each movies}}
   <li>
-    <a href='/movie/{{title}}&{{release_date}}'>
+    <a href='/movie/{{link}}&{{release_date}}'>
       <p class='movieName'>{{title}}</p>
       <div class='descriptionContainer'>
         <img src='https://image.tmdb.org/t/p/w200{{poster_path}}' alt="{{title}}">
